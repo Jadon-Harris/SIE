@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.uta.sie.JwtAuthenticationTokenFilter;
+import com.uta.sie.filter.JwtAuthenticationTokenFilter;
 
 import lombok.AllArgsConstructor;
 
