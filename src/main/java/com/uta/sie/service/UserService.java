@@ -13,4 +13,8 @@ public interface UserService extends IService<User> {
     ResponseResult<Map<String,String>> login(User user);
 
     ResponseResult<String> logout();
+
+    ResponseResult<User> signUp(User user);
+
+    ResponseResult<User> forgetPassword(User user);
 }
