@@ -55,7 +55,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         redisCache.setCacheObject("login:" + userId, loginUser);
 
-        return new ResponseResult<>(200, "login success", map);
+        return new ResponseResult<>(HttpStatus.OK.value(), "login success", map);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         redisCache.deleteObject("login:" + userId);
 
-        return new ResponseResult<>(200, "logout success.");
+        return new ResponseResult<>(HttpStatus.OK.value(), "logout success.");
     }
 
     @Override
@@ -101,7 +101,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             userMapper.updateById(userRes);
             return new ResponseResult<>(HttpStatus.OK.value(), "password has been updated", userRes);
         } else {
-            return new ResponseResult<>(400, "verification failed", null);
+            return new ResponseResult<>(HttpStatus.UNAUTHORIZED.value(), "verification failed", null);
         }
     }
 
