@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.uta.sie.common.ResponseResult;
@@ -24,12 +25,14 @@ import com.uta.sie.utils.JwtUtils;
 import com.uta.sie.utils.RedisCache;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Jadon
  */
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     private final AuthenticationManager authenticationManager;
     private final RedisCache redisCache;
@@ -105,5 +108,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
     }
 
-
+    @Override
+    public ResponseResult<String> getUserInfo(String userId) {
+        LoginUser user = redisCache.getCacheObject("login:" + userId);
+        return new ResponseResult<>(HttpStatus.OK.value(), "login success",user.getUser().getName());
+    }
 }

@@ -17,4 +17,6 @@ public interface UserService extends IService<User> {
     ResponseResult<User> signUp(User user);
 
     ResponseResult<User> forgetPassword(User user);
+
+    ResponseResult<String> getUserInfo(String userId);
 }

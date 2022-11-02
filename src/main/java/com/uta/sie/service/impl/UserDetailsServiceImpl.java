@@ -35,8 +35,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         }
 
-        //TODO 查询对应权限
-
         // 返回封装好的UserDetails
         return new LoginUser(user);
     }

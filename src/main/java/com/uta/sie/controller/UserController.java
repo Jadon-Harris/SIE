@@ -2,6 +2,8 @@ package com.uta.sie.controller;
 
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,5 +45,10 @@ public class UserController {
     @PutMapping("/forgetPassword")
     public ResponseResult<User> forgetPassword(@RequestBody User user) {
         return userService.forgetPassword(user);
+    }
+
+    @GetMapping("/getUserInfo/{userId}")
+    public ResponseResult<String> getUserInfo(@PathVariable String userId) {
+        return userService.getUserInfo(userId);
     }
 }
