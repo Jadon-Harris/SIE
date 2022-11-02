@@ -4,76 +4,76 @@ import java.io.Serializable;
 import javax.annotation.Generated;
 
 public class ClubPost implements Serializable {
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
     private Integer id;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.title")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.title")
     private String title;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.content")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.content")
     private String content;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.club_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
     private Integer clubId;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.student_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
     private String studentId;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source Table: club_post")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source Table: club_post")
     private static final long serialVersionUID = 1L;
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
     public Integer getId() {
         return id;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
     public void setId(Integer id) {
         this.id = id;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.title")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.title")
     public String getTitle() {
         return title;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.title")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.title")
     public void setTitle(String title) {
         this.title = title;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.content")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.content")
     public String getContent() {
         return content;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.content")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.content")
     public void setContent(String content) {
         this.content = content;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.club_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
     public Integer getClubId() {
         return clubId;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.club_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
     public void setClubId(Integer clubId) {
         this.clubId = clubId;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.student_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
     public String getStudentId() {
         return studentId;
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source field: club_post.student_id")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
     @Override
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-10-31T00:05:36.472+08:00", comments="Source Table: club_post")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source Table: club_post")
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
