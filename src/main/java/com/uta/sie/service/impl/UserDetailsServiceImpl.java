@@ -32,7 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         if (Objects.isNull(user)){
             throw new RuntimeException("username or password wrong.");
-
         }
 
         // 返回封装好的UserDetails

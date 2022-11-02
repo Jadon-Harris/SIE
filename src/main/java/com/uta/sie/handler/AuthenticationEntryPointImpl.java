@@ -23,8 +23,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        ResponseResult<String> responseResult = new ResponseResult<>(HttpStatus.UNAUTHORIZED.value(), "user authentication failed");
-
+        ResponseResult<String> responseResult = new ResponseResult<>(HttpStatus.UNAUTHORIZED.value(), "username or password error.");
         final String json = JSON.toJSONString(responseResult);
         WebUtils.renderString(response, json);
     }
