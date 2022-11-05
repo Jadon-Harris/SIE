@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @GetMapping("/getUserInfo/{userId}")
-    public ResponseResult<String> getUserInfo(@PathVariable String userId) {
+    public ResponseResult<User> getUserInfo(@PathVariable String userId) {
         return userService.getUserInfo(userId);
     }
 }

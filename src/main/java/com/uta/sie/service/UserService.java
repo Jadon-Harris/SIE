@@ -18,5 +18,5 @@ public interface UserService extends IService<User> {
 
     ResponseResult<User> forgetPassword(User user);
 
-    ResponseResult<String> getUserInfo(String userId);
+    ResponseResult<User> getUserInfo(String userId);
 }

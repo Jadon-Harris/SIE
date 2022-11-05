@@ -108,8 +108,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public ResponseResult<String> getUserInfo(String userId) {
+    public ResponseResult<User> getUserInfo(String userId) {
         LoginUser user = redisCache.getCacheObject("login:" + userId);
-        return new ResponseResult<>(HttpStatus.OK.value(), "login success",user.getUser().getName());
+        return new ResponseResult<>(HttpStatus.OK.value(), "login success",user.getUser());
     }
 }
