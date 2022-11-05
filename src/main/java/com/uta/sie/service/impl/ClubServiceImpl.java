@@ -12,9 +12,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.uta.sie.common.ResponseResult;
 import com.uta.sie.entity.Club;
-import com.uta.sie.entity.ClubMembers;
+import com.uta.sie.entity.ClubMember;
 import com.uta.sie.mapper.ClubMapper;
-import com.uta.sie.mapper.ClubMembersMapper;
+import com.uta.sie.mapper.ClubMemberMapper;
 import com.uta.sie.service.ClubService;
 
 import lombok.AllArgsConstructor;
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ClubServiceImpl extends ServiceImpl<ClubMapper, Club> implements ClubService {
     private final ClubMapper clubMapper;
-    private final ClubMembersMapper clubMembersMapper;
+    private final ClubMemberMapper clubMemberMapper;
 
     @Override
     public ResponseResult<Page<Club>> page(int page, int pageSize, String name) {
@@ -51,10 +51,10 @@ public class ClubServiceImpl extends ServiceImpl<ClubMapper, Club> implements Cl
             return new ResponseResult<>(HttpStatus.BAD_REQUEST.value(), "There is already a club names "+club.getName(),null);
         }else {
             clubMapper.insert(club);
-            ClubMembers clubMembers = new ClubMembers();
-            clubMembers.setClubId(club.getId());
-            clubMembers.setStudentId(club.getStudentId());
-            clubMembersMapper.insert(clubMembers);
+            ClubMember clubMember = new ClubMember();
+            clubMember.setClubId(club.getId());
+            clubMember.setStudentId(club.getStudentId());
+            clubMemberMapper.insert(clubMember);
             return new ResponseResult<>(HttpStatus.OK.value(), "Set up the club success.",club);
         }
     }
