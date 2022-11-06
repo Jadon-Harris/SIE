@@ -2,7 +2,6 @@ package com.uta.sie.service;
 
 import java.util.List;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uta.sie.common.ResponseResult;
 import com.uta.sie.entity.ClubMember;
