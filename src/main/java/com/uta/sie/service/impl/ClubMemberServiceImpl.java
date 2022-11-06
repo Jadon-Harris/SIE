@@ -1,6 +1,7 @@
 package com.uta.sie.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -61,7 +62,14 @@ public class ClubMemberServiceImpl extends ServiceImpl<ClubMemberMapper, ClubMem
 
     @Override
     public ResponseResult<String> joinClub(ClubMember clubMember) {
-        clubMemberMapper.insert(clubMember);
-        return new ResponseResult<>(HttpStatus.OK.value(), "Join club success", null);
+        final LambdaQueryWrapper<ClubMember> clubMemberLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        clubMemberLambdaQueryWrapper.eq(ClubMember::getClubId, clubMember.getClubId()).eq(ClubMember::getStudentId, clubMember.getStudentId());
+        final ClubMember clubMemberExisted = clubMemberMapper.selectOne(clubMemberLambdaQueryWrapper);
+        if (!Objects.isNull(clubMemberExisted)) {
+            clubMemberMapper.insert(clubMember);
+            return new ResponseResult<>(HttpStatus.OK.value(), "Join club success", null);
+        } else {
+            return new ResponseResult<>(HttpStatus.BAD_REQUEST.value(), "You have already joined this club.", null);
+        }
     }
 }
