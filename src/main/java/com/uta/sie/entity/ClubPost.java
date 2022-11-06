@@ -3,8 +3,12 @@ package com.uta.sie.entity;
 import java.io.Serializable;
 import javax.annotation.Generated;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 public class ClubPost implements Serializable {
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Integer id;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.title")
