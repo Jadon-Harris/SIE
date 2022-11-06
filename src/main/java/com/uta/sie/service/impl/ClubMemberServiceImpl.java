@@ -63,13 +63,14 @@ public class ClubMemberServiceImpl extends ServiceImpl<ClubMemberMapper, ClubMem
     @Override
     public ResponseResult<String> joinClub(ClubMember clubMember) {
         final LambdaQueryWrapper<ClubMember> clubMemberLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        clubMemberLambdaQueryWrapper.eq(ClubMember::getClubId, clubMember.getClubId()).eq(ClubMember::getStudentId, clubMember.getStudentId());
+        clubMemberLambdaQueryWrapper.eq(ClubMember::getClubId, clubMember.getClubId());
+        clubMemberLambdaQueryWrapper.eq(ClubMember::getStudentId, clubMember.getStudentId());
         final ClubMember clubMemberExisted = clubMemberMapper.selectOne(clubMemberLambdaQueryWrapper);
         if (!Objects.isNull(clubMemberExisted)) {
+            return new ResponseResult<>(HttpStatus.BAD_REQUEST.value(), "You have already joined this club.", null);
+        } else {
             clubMemberMapper.insert(clubMember);
             return new ResponseResult<>(HttpStatus.OK.value(), "Join club success", null);
-        } else {
-            return new ResponseResult<>(HttpStatus.BAD_REQUEST.value(), "You have already joined this club.", null);
         }
     }
 }
