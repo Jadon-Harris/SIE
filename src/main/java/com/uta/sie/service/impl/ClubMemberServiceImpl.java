@@ -30,15 +30,11 @@ public class ClubMemberServiceImpl extends ServiceImpl<ClubMemberMapper, ClubMem
     private final ClubMemberMapper clubMemberMapper;
 
     @Override
-    public ResponseResult<Page<User>> page(Long clubId, int page, int pageSize, String name) {
+    public ResponseResult<List<User>> getAllMembers(Long clubId, String name) {
         // step1: 从club_member表中获取当前俱乐部所有成员的id。
-        final Page<ClubMember> clubMemberPage = new Page<>(page, pageSize);
         final LambdaQueryWrapper<ClubMember> clubMemberLambdaQueryWrapper = new LambdaQueryWrapper<>();
         clubMemberLambdaQueryWrapper.eq(ClubMember::getClubId, clubId);
-        final List<ClubMember> clubMemberList = clubMemberMapper.selectPage(clubMemberPage, clubMemberLambdaQueryWrapper).getRecords();
-
-        // step2: init user page to return.
-        final Page<User> userPage = new Page<>(page, pageSize);
+        final List<ClubMember> clubMemberList = clubMemberMapper.selectList(clubMemberLambdaQueryWrapper);
 
         // step3: 从user表中查询user详细信息。
         final List<User> clubMembers = clubMemberList.stream().map(clubMember -> {
@@ -48,10 +44,7 @@ public class ClubMemberServiceImpl extends ServiceImpl<ClubMemberMapper, ClubMem
             return userMapper.selectOne(userLambdaQueryWrapper);
         }).collect(Collectors.toList());
 
-        // step4: 将user存入user page的records中
-        userPage.setRecords(clubMembers);
-
-        return new ResponseResult<>(HttpStatus.OK.value(), "Search success", userPage);
+        return new ResponseResult<>(HttpStatus.OK.value(), "Search success", clubMembers);
     }
 
     @Override

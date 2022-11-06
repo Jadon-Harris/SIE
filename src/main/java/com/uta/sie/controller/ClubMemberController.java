@@ -1,5 +1,7 @@
 package com.uta.sie.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,14 +36,11 @@ public class ClubMemberController {
      * url: 127.0.0.1:8080/club/member/1588843026719801346?page=1&pageSize=5&name=ad  or 127.0.0.1:8080/club/member/1588843026719801346?page=1&pageSize=5
      *
      * @param clubId   club id.
-     * @param page     page number.
-     * @param pageSize page size.
-     * @param name     user's name.
      * @return page of res.
      */
     @GetMapping("/{clubId}")
-    public ResponseResult<Page<User>> page(@PathVariable Long clubId, int page, int pageSize, String name) {
-        return clubMemberService.page(clubId, page, pageSize, name);
+    public ResponseResult<List<User>> getAllMembers(@PathVariable Long clubId,String name) {
+        return clubMemberService.getAllMembers(clubId,name);
     }
 
 

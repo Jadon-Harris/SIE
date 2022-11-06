@@ -1,5 +1,7 @@
 package com.uta.sie.service;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uta.sie.common.ResponseResult;
@@ -11,7 +13,7 @@ import com.uta.sie.entity.User;
  */
 public interface ClubMemberService extends IService<ClubMember> {
 
-    ResponseResult<Page<User>> page(Long clubId, int page, int pageSize, String name);
+    ResponseResult<List<User>> getAllMembers(Long clubId, String name);
 
     ResponseResult<String> quitClub(Long userId);
 
