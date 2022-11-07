@@ -27,16 +27,35 @@ import lombok.extern.slf4j.Slf4j;
 public class ClubPostController {
     private final ClubPostService clubPostService;
 
+    /**
+     * 获取某个俱乐部的所有post.
+     * url: localhost:8080/club/post?clubId=xxxxxx
+     * @param clubId club id
+     * @return response.
+     */
     @GetMapping
     public ResponseResult<List<ClubPost>> getAllPosts(Long clubId){
         return clubPostService.getAllPosts(clubId);
     }
 
+    /**
+     * 发布post
+     * url: localhost:8080/club/post
+     * body中加入ClubPost的json.
+     * @param clubPost club post object.
+     * @return response.
+     */
     @PostMapping
     public ResponseResult<ClubPost> post(@RequestBody ClubPost clubPost){
         return clubPostService.post(clubPost);
     }
 
+    /**
+     * 删除post,发送delete请求
+     * url: localhost:8080/club/post/xxxxxxx(club的id)
+     * @param postId post id.
+     * @return response
+     */
     @DeleteMapping("/{postId}")
     public ResponseResult<ClubPost> deletePost(@PathVariable Long postId){
         return clubPostService.deletePost(postId);
