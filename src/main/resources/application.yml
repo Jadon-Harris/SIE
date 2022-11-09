@@ -19,3 +19,5 @@ mybatis-plus:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+sie:
+  path: src/main/resources/static/
