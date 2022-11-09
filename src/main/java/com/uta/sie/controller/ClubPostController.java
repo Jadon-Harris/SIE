@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uta.sie.common.ResponseResult;
 import com.uta.sie.entity.ClubPost;
+import com.uta.sie.entity.dto.ClubPostDto;
 import com.uta.sie.service.ClubPostService;
 
 import lombok.AllArgsConstructor;
@@ -34,7 +35,7 @@ public class ClubPostController {
      * @return response.
      */
     @GetMapping
-    public ResponseResult<List<ClubPost>> getAllPosts(Long clubId){
+    public ResponseResult<List<ClubPostDto>> getAllPosts(Long clubId){
         return clubPostService.getAllPosts(clubId);
     }
 
