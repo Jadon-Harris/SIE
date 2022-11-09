@@ -2,6 +2,7 @@ package com.uta.sie.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -45,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 //                .authorizeRequests().anyRequest().permitAll();
                 .authorizeRequests().antMatchers("/user/login","/user/forgetPassword","/user/signUp").permitAll()
+                .antMatchers(HttpMethod.GET,"/**.png","/**.jpg").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
