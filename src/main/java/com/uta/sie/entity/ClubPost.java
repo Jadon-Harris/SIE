@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 public class ClubPost implements Serializable {
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
     @JsonSerialize(using = ToStringSerializer.class)
-    private Integer id;
+    private Long id;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.title")
     private String title;
@@ -18,21 +18,23 @@ public class ClubPost implements Serializable {
     private String content;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
-    private Integer clubId;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long clubId;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
-    private String studentId;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long studentId;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source Table: club_post")
     private static final long serialVersionUID = 1L;
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.452+08:00", comments="Source field: club_post.id")
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -57,22 +59,22 @@ public class ClubPost implements Serializable {
     }
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
-    public Integer getClubId() {
+    public Long getClubId() {
         return clubId;
     }
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.club_id")
-    public void setClubId(Integer clubId) {
+    public void setClubId(Long clubId) {
         this.clubId = clubId;
     }
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
-    public String getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
     @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2022-11-05T16:16:32.453+08:00", comments="Source field: club_post.student_id")
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
