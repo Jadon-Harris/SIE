@@ -1,3 +1,6 @@
+merchandise:
+  upload:
+    path: D:/merchandise/upload
 server:
   port: 8080
 spring:
@@ -8,7 +11,12 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       url: jdbc:mysql://localhost:3306/sie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: root
-      password: Jd28936418
+      password: hp123456
+  mvc:
+    static-path-pattern: /**
+  web:
+    resources:
+      static-locations: classpath:/static,file:${merchandise.upload.path}
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
