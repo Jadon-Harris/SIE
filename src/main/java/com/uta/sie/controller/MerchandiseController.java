@@ -64,10 +64,8 @@ public class MerchandiseController {
         try {
             mf.transferTo(new File(this.merchandisePicPath+"/"+newFilename));
         } catch (IllegalStateException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         Merchandise merchandise=new Merchandise(name,price,description,newFilename,sellerId,null,state);
