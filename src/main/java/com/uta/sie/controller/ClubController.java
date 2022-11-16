@@ -1,7 +1,10 @@
 package com.uta.sie.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.uta.sie.common.ResponseResult;
 import com.uta.sie.entity.Club;
+import com.uta.sie.entity.dto.ClubNameAndDescriptionDto;
 import com.uta.sie.service.ClubService;
 
 import lombok.AllArgsConstructor;
@@ -59,5 +63,15 @@ public class ClubController {
     public ResponseResult<Club> update(@RequestBody Club club){
         clubService.updateById(club);
         return new ResponseResult<>(HttpStatus.OK.value(), "Update the club success.", club);
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseResult<List<Club>> getClubs(@PathVariable Long userId){
+        return clubService.getClubs(userId);
+    }
+
+    @GetMapping("/nameAndDescription")
+    public ResponseResult<List<ClubNameAndDescriptionDto>> getAllClubNameAndDescription(){
+        return clubService.getAllClubNameAndDescription();
     }
 }

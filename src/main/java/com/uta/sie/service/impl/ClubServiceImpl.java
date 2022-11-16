@@ -1,6 +1,8 @@
 package com.uta.sie.service.impl;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.uta.sie.common.ResponseResult;
 import com.uta.sie.entity.Club;
 import com.uta.sie.entity.ClubMember;
+import com.uta.sie.entity.dto.ClubNameAndDescriptionDto;
 import com.uta.sie.mapper.ClubMapper;
 import com.uta.sie.mapper.ClubMemberMapper;
 import com.uta.sie.service.ClubService;
@@ -59,4 +62,24 @@ public class ClubServiceImpl extends ServiceImpl<ClubMapper, Club> implements Cl
         }
     }
 
+    @Override
+    public ResponseResult<List<Club>> getClubs(Long userId) {
+        final LambdaQueryWrapper<ClubMember> clubMemberLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        clubMemberLambdaQueryWrapper.eq(ClubMember::getStudentId,userId);
+        final List<ClubMember> clubMembers = clubMemberMapper.selectList(clubMemberLambdaQueryWrapper);
+        final List<Club> clubs = clubMapper.selectBatchIds(clubMembers.stream().map(ClubMember::getClubId).collect(Collectors.toList()));
+        return new ResponseResult<>(HttpStatus.OK.value(),"",clubs);
+    }
+
+    @Override
+    public ResponseResult<List<ClubNameAndDescriptionDto>> getAllClubNameAndDescription() {
+        final List<Club> clubs = clubMapper.selectList(null);
+        final List<ClubNameAndDescriptionDto> clubNameAndDescriptionDtos = clubs.stream().map(club -> {
+            final ClubNameAndDescriptionDto clubNameAndDescriptionDto = new ClubNameAndDescriptionDto();
+            clubNameAndDescriptionDto.setValue(club.getName());
+            clubNameAndDescriptionDto.setDescription(club.getDescription());
+            return clubNameAndDescriptionDto;
+        }).collect(Collectors.toList());
+        return new ResponseResult<>(HttpStatus.OK.value(), null,clubNameAndDescriptionDtos);
+    }
 }
