@@ -16,4 +16,10 @@ public class SearchResultDto {
     private List<Club> clubs;
     private List<Merchandise> merchandises;
     private List<Tutor> tutors;
+
+    private Integer clubCount;
+    private Integer merchandiseCount;
+    private Integer tutorCount;
+
+    private Integer allCount;
 }

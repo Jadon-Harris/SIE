@@ -48,6 +48,12 @@ public class SearchServiceImpl implements SearchService {
         searchResultDto.setClubs(clubs);
         searchResultDto.setMerchandises(merchandises);
 
+        searchResultDto.setTutorCount(tutors.size());
+        searchResultDto.setClubCount(clubs.size());
+        searchResultDto.setMerchandiseCount(merchandises.size());
+
+        searchResultDto.setAllCount(tutors.size()+clubs.size()+merchandises.size());
+
         return new ResponseResult<>(HttpStatus.OK.value(),"search success",searchResultDto);
     }
 }
