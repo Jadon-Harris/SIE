@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,13 +33,17 @@ public class SendController
         String sendUser=jsonObject.getString("sendUser");
         String sendContent=jsonObject.getString("sendContent");
         String sendSubject=jsonObject.getString("sendSubject");
-        String sendTime=jsonObject.getString("sendTime");
         String state=jsonObject.getString("sendState");
         Integer sendState=Integer.parseInt(state);
         String sendEmail=jsonObject.getString("sendEmail");
         String receiveUser=jsonObject.getString("receiveUser");
         String receiveName=jsonObject.getString("receiveName");
-
+        if(jsonObject.getString("receiveName").length()>8){
+            receiveName=jsonObject.getString("receiveName").substring(0,jsonObject.getString("receiveName").length()-8);
+        }
+        Date nowtime=new Date();
+        SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String sendTime=sdf.format(nowtime);
         Send send=new Send();
         send.setSendUser(sendUser);
         send.setSendEmail(sendEmail);
